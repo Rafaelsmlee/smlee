@@ -77,35 +77,44 @@ body {
 
 }
 
-.content__kfcasd{
-    display: flex;
-    flex-direction: column  ;
-}
-
 .content__kfcimg {
     position: relative;
     display: flex;
     flex-direction: column;
-}
-
-.content__kfcimg img {
-    width: 25%; 
-    height: 400px;
+    height: 500px;
+    width: 25%;
 
     margin: -30px -10px;
-    left: 0;
+    left: 40px;
     bottom: 20;
 
     position: absolute;
     z-index: 2; 
 }
 
-.content__kfctxt {
+.content__kfcimg img {
+    width: 100%; 
+    height: 86%;
+
+    margin-top: 20px;
+}
+
+.content__kfcimg p {
+
+    font-size: 15px;
+    font-style: italic;
+
+    margin-top: 10px;
+    margin-right: 80px;
+}
+
+.content__kfc p {
 
     position: relative; 
-    top: 100%; 
+    top: 0;
+    bottom: 100%; 
     left: 0;
-
+    
     z-index: 3; 
 }
 
