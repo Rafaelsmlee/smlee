@@ -14,9 +14,10 @@ body {
 
 }
 
-.div__space{
+.div__space {
     height: 30px;
 }
+
 .container {
     width: 100%;
     height: 100%;
@@ -41,23 +42,23 @@ body {
 }
 
 .slider::before,
-.slider::after{
+.slider::after {
     position: absolute;
     top: 0;
     width: 200px;
     height: 100%;
     content: "";
-    z-index:2;
+    z-index: 2;
 }
 
-.slider::before{
+.slider::before {
     left: 0;
-    background: linear-gradient(to left, rgba(255,255,255,0),white);
+    background: linear-gradient(to left, rgba(255, 255, 255, 0), white);
 }
 
-.slider::after{
+.slider::after {
     right: 0;
-    background: linear-gradient(to right, rgba(255,255,255,0),white);
+    background: linear-gradient(to right, rgba(255, 255, 255, 0), white);
 }
 
 .slider-banner {
@@ -66,7 +67,7 @@ body {
 }
 
 
-.slider-banner{
+.slider-banner {
     position: relative;
 }
 
@@ -81,21 +82,17 @@ body {
     position: relative;
     display: flex;
     flex-direction: column;
-    height: 500px;
+    height: 400px;
     width: 25%;
 
     margin: -30px -10px;
     left: 40px;
-    bottom: 20;
 
     position: absolute;
-    z-index: 2; 
+    z-index: 2;
 }
 
 .content__kfcimg img {
-    width: 100%; 
-    height: 86%;
-
     margin-top: 20px;
 }
 
@@ -105,86 +102,141 @@ body {
     font-style: italic;
 
     margin-top: 10px;
-    margin-right: 80px;
+    margin-right: 70px;
 }
 
 .content__kfc p {
 
-    position: relative; 
+    position: relative;
     top: 0;
-    bottom: 100%; 
+    bottom: 100%;
     left: 0;
-    
-    z-index: 3; 
+
+    z-index: 2;
 }
 
 
-.content__kfc{
+.content__kfc {
     display: flex;
     flex-direction: column;
 
-    width: 55%; 
-    min-height: 300px; 
-    
-    background-color: #f2f2f2;  
-    
-    margin: 0 auto; 
-    position: relative; 
-    z-index: 1; 
-    padding-left: 5%;
-}   
+    width: 55%;
+    min-height: 300px;
 
-.content__kfc h1{
-        
+    background-color: #f2f2f2;
+
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+    padding-left: 5%;
+}
+
+.content__kfc h1 {
+
     color: red;
     font-family: var(--tituloCorpo);
-  
+
     font-style: normal;
     font-size: 55px;
-   
-    align-self: flex-start; 
+
+    align-self: flex-start;
     margin-left: auto;
     margin-top: 30px;
     margin-right: 50px;
-   
-    
+
+
 }
 
 .content__kfc p{
-    
+
     font-family: var(--textoCorpo);
     font-style: normal;
-   
+
     font-size: 23px;
-   
-    align-self: flex-start; 
+
+    align-self: flex-start;
     margin-left: auto;
     margin: 1px 30px 0 0;
-   
+
 }
 
-.content__history{
+.content__historyimg {
+
+    display: flex;
+    flex-direction: column;
+    height: 500px;
+    width: 35%;
+
+    margin: 20px -10px;
+    right: 40px;
+
+    padding-top: 40px;
 
 
-    width: 55%; 
-    min-height: 300px; 
-      
+    position: absolute;
+    z-index: 2;
+}
 
-    position: relative; 
-    z-index: 1; 
+.content__kfcimg img {
+    width: 100%;
+    height: 86%;
+
+    margin-top: 20px;
+}
+
+.content__historytxt {
+
+
+    width: 60%;
+    min-height: 300px;
+
+
+    position: relative;
+    z-index: 1;
     padding-left: 20%;
+
 }
 
-.content__history p {
+.content__historytxt p {
     font-family: var(--textoCorpo);
     font-style: normal;
+
     font-size: 23px;
 
-    align-self: flex-start; 
+    align-self: flex-start;
+    margin-left: auto;
+    margin: 1px 30px 0 0;
 
-    margin: 1px 0 0 20px; 
 }
 
+.content__modernimg {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 500px;
+    width: 25%;
+
+    margin: -30px -10px;
+    left: 40px;
+
+    position: absolute;
+    z-index: 2;
+}
+
+.content__modernimg img {
+    width: 100%;
+    height: 86%;
+
+    margin-top: 20px;
+}
+.content__kfcimg p {
+
+    font-size: 15px;
+    font-style: italic;
+
+    margin-top: 10px;
+    margin-right: 70px;
+}
 
 @keyframes slide {
     from {
@@ -192,12 +244,13 @@ body {
     }
 
     to {
-        transform: translateX(-100%)}
+        transform: translateX(-100%)
+    }
 }
 
 
 
-.teste5{
+.teste5 {
     height: 400px;
     background-color: red;
 }
