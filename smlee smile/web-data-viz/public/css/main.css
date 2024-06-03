@@ -1,0 +1,194 @@
+:root {
+    --text-dark: #212529;
+    --white: #ffffff;
+    --max-width: 1800;
+    --titulo: "Capriola", sans-serif;
+    --texto: "Carlito", sans-serif;
+    --tituloCorpo: "Bebas Neue";
+    --textoCorpo: "Montserrat";
+}
+
+body {
+    scroll-behavior: smooth;
+    /* background-color: #f2f2f2; */
+
+}
+
+.div__space{
+    height: 30px;
+}
+.container {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+
+.slider {
+    height: 150px;
+    margin: auto;
+    position: relative;
+    width: 100%;
+    display: grid;
+    place-items: center;
+}
+
+.slider {
+    overflow: hidden;
+    padding: 60px 0;
+    white-space: nowrap;
+    position: relative;
+}
+
+.slider::before,
+.slider::after{
+    position: absolute;
+    top: 0;
+    width: 200px;
+    height: 100%;
+    content: "";
+    z-index:2;
+}
+
+.slider::before{
+    left: 0;
+    background: linear-gradient(to left, rgba(255,255,255,0),white);
+}
+
+.slider::after{
+    right: 0;
+    background: linear-gradient(to right, rgba(255,255,255,0),white);
+}
+
+.slider-banner {
+    display: inline-block;
+    animation: 40s slide infinite linear;
+}
+
+
+.slider-banner{
+    position: relative;
+}
+
+.slider-banner img {
+    height: 100px;
+    margin: 0 30px;
+
+
+}
+
+.content__kfcasd{
+    display: flex;
+    flex-direction: column  ;
+}
+
+.content__kfcimg {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.content__kfcimg img {
+    width: 25%; 
+    height: 400px;
+
+    margin: -30px -10px;
+    left: 0;
+    bottom: 20;
+
+    position: absolute;
+    z-index: 2; 
+}
+
+.content__kfctxt {
+
+    position: relative; 
+    top: 100%; 
+    left: 0;
+
+    z-index: 3; 
+}
+
+
+.content__kfc{
+    display: flex;
+    flex-direction: column;
+
+    width: 55%; 
+    min-height: 300px; 
+    
+    background-color: #f2f2f2;  
+    
+    margin: 0 auto; 
+    position: relative; 
+    z-index: 1; 
+    padding-left: 5%;
+}   
+
+.content__kfc h1{
+        
+    color: red;
+    font-family: var(--tituloCorpo);
+  
+    font-style: normal;
+    font-size: 55px;
+   
+    align-self: flex-start; 
+    margin-left: auto;
+    margin-top: 30px;
+    margin-right: 50px;
+   
+    
+}
+
+.content__kfc p{
+    
+    font-family: var(--textoCorpo);
+    font-style: normal;
+   
+    font-size: 23px;
+   
+    align-self: flex-start; 
+    margin-left: auto;
+    margin: 1px 30px 0 0;
+   
+}
+
+.content__history{
+
+
+    width: 55%; 
+    min-height: 300px; 
+      
+
+    position: relative; 
+    z-index: 1; 
+    padding-left: 20%;
+}
+
+.content__history p {
+    font-family: var(--textoCorpo);
+    font-style: normal;
+    font-size: 23px;
+
+    align-self: flex-start; 
+
+    margin: 1px 0 0 20px; 
+}
+
+
+@keyframes slide {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-100%)}
+}
+
+
+
+.teste5{
+    height: 400px;
+    background-color: red;
+}

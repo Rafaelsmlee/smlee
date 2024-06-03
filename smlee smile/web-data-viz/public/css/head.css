@@ -1,0 +1,223 @@
+header {
+
+    width: 100%;
+    max-width: var(--max-width);
+
+    margin: auto;
+
+    top: 0;
+
+    text-align: center;
+
+    z-index: 1;
+
+    /* flashbang/*/
+     animation: sliderReveal 1s ease forwards; 
+
+     background-attachment: fixed;
+   
+}
+
+video{
+    width: 100%;
+    height: 100%;
+
+    z-index: -2;
+    background-image: linear-gradient(rgba(12,3,51,0.3),(12,3,51,0.3));
+    width: 100%;
+}
+
+
+
+a {
+    text-decoration: none;
+    transition: 0.3s;
+    text-decoration-line: none;
+    font-size: larger;  
+
+}
+
+
+nav {
+    position: fixed;
+    width: 100%;
+    max-width: var(--max-width);
+    margin-inline: auto;
+
+    font-family: var(--titulo);
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+.header__textoKR{
+
+    position: absolute; 
+    z-index: 1;
+
+    width: 90%;
+
+    font-size: 100px;
+    font-family: "Nanum Brush Script", cursive;
+
+    text-align: center; 
+    color: var(--white);
+    text-shadow: 
+    -1px -1px 0 #000,  
+     1px -1px 0 #000,
+    -1px  1px 0 #000,
+     1px  1px 0 #000;
+
+    
+    top: 40%; 
+    left: 50%; 
+
+    transform: translate(-50%, -50%); 
+    animation: sliderRevealCenter 5s ease forwards; 
+ 
+    
+}
+
+.header__textoBR{
+
+    position: absolute; 
+    z-index: 1;
+    
+    width: 85%;
+
+    font-size: 60px;
+    font-family: "Merienda", cursive;
+    font-weight: bold;
+    text-align: center; 
+    
+    color: var(--white);
+    text-shadow: 
+    -1px -1px 0 #000,  
+     1px -1px 0 #000,
+    -1px  1px 0 #000,
+     1px  1px 0 #000;
+
+    
+    top: 75%; 
+    left: 50%; 
+
+    transform: translate(-30%, -30%); 
+    animation: sliderRevealCenter 6.5s ease forwards; 
+ 
+    
+}
+
+
+
+
+
+.btn__texto{
+    font-size: 24px;
+}
+
+.nav__header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 10vh;
+
+    font-size: 3rem;  
+
+
+
+    padding: 1rem;
+     align-items: center;
+    /*justify-content: space-between; */
+
+    top: 0; 
+    z-index: 1; 
+
+    animation: sliderReveal 1.5s ease forwards; 
+    
+}
+
+
+
+
+.smlee-icon {
+    
+   padding-top: 50px;
+
+    width: 100%;
+
+}
+
+
+.logo__header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    width: 15%;
+
+    font-size: 20px;
+    font-weight: 600;
+
+    font-family: var(--titulo);   
+
+    /* background-color:  rgb(250, 249, 156) ; */
+    border-radius: 10%;
+
+    
+    
+}
+
+.logo-divisa{
+    height: 80px;
+    width: 3px;
+
+    margin: 7px;
+
+    background-color:#faf9aa;
+
+    z-index: 1;
+}
+
+.a__header{
+    gap: 2rem;
+   
+}
+
+.header__logotexto{
+    
+    color: #faf9aa;
+    text-shadow: 
+    0 0 5px #B3B14C,  
+    0 0 5px #B3B14C, 
+    0 0 5px #B3B14C;
+}
+
+
+@keyframes smothScale{
+    0% {transform: scale(1.05);}
+    100%{transform: scale(1.15);}
+
+
+}
+
+@keyframes sliderReveal {
+    0%{
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    100%{
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes sliderRevealCenter {
+    0% {
+        transform: translate(-50%, -50%) translateY(30px);
+        opacity: 0;
+    }
+    100% {
+        transform: translate(-50%, -50%) translateY(0);
+        opacity: 1;
+    }
+}
