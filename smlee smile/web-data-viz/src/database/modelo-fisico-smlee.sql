@@ -22,7 +22,7 @@ nome, endereco, cidade, bairro, Telefone, WhatsApp, Instagram, Descricao, Rankin
 VALUES
 ('Pollo Loko', 'Rua Prates, 694', 'São Paulo','Bom Retiro',  '(11)94226-1783', '(11)94226-1783', 'https://www.instagram.com/polloloko_oficial', 'Criado com a intenção de ser uma alternativas eram as pizzas e as esfihas, Pollo Loko veio para popularizar o frango frito, o casamento perfeito entre culturas com a sua mistura de temperos brasileiros com a técnica de fritura coreana! É a primeira franquia de frango frito coreano 100% brasileira!', 4.5),
 ('Seoul Chicken', 'R. Guarani, 127', 'São Paulo', 'Bom Retiro', '(11)91042-2801', '(11)91042-2801', 'https://www.instagram.com/seoulchickenbrasil/', 'Em um pub acolhedor do Bom Retiro, descubra um paraíso de sabores coreanos. O frango suculento e temperado brilha, enquanto a equipe atenciosa garante uma experiência memorável. Das opções crocantes aos pratos tradicionais, é uma verdadeira viagem à Coreia. Ideal para jovens em busca de uma aventura gastronômica!, .', 4.4),
-('Waker Chicken', 'Rua Prates,340', 'São Paulo', 'Bom Retiro', '(11)91877-2209', '(11)91877-2209', 'https://www.instagram.com/wakerchickenbrasil/', 'Waker Chicken no Bom Retiro oferece frango frito ao estilo coreano em ambiente animado com K-pop. A suculência da carne, a crocância da fritura e os molhos apimentados que podem ser pedidos a parte surpreendem. Destaque para o mural do BTS. Uma experiência autêntica da Coreia no Brasil!', 4.8);
+('Waker Chicken', 'Rua Prates,340', 'São Paulo', 'Bom Retiro', '(11)91877-2209', '(11)91877-2209', 'https://www.instagram.com/wakerchickenbrasil/', 'Oferece frango frito ao estilo coreano em um ambiente muito animado com bastante K-pop. A suculência da carne, a crocância da fritura e os molhos apimentados que podem ser pedidos a parte surpreendem. Fica um destaque para o mural do BTS na entrada do estabelcimento. Uma experiência autêntica da Coreia no Brasil!', 4.8);
 
 
 CREATE TABLE IF NOT EXISTS horario_funcionamento (
@@ -83,12 +83,12 @@ CREATE TABLE ImagensRestaurante (
     nomeImagem VARCHAR(50),
     imagem BLOB,
     
-    primary key(idImagem),
+    primary key(id),
     CONSTRAINT fk_restaurante_img FOREIGN KEY ( fk_restaurante) REFERENCES Restaurantes(idRestaurante)
 );
 
-INSERT INTO ImagensRestaurante (idRestaurante, nomeImagem, imagem) VALUES
-(1, 'logopolloloko', LOAD_FILE('/caminho/para/sua/imagem/restaurante1_img1.jpg')),
+INSERT INTO ImagensRestaurante (fk_restaurante, nomeImagem, imagem) VALUES
+(1, 'logopolloloko', LOAD_FILE('public/assets/invitation/polloLoko/logo2.jpg')),
 (1, 'polloloko_img1', LOAD_FILE('/caminho/para/sua/imagem/restaurante1_img1.jpg')),
 (1, 'polloloko_img2', LOAD_FILE('/caminho/para/sua/imagem/restaurante1_img2.jpg')),
 (1, 'polloloko_img3', LOAD_FILE('/caminho/para/sua/imagem/restaurante1_img3.jpg')),
@@ -132,7 +132,8 @@ INSERT INTO ImagensRestaurante (idRestaurante, nomeImagem, imagem) VALUES
     
     SELECT
 		r.idRestaurante,
+        r.nome,
 		img.imagem
 	FROM ImagensRestaurante AS img
-	JOIN Restaurantes AS r ON  img.fk_restaurante = r.idRestaurante
-    WHERE r.idRestaurante IN (1,5,9 );
+	JOIN Restaurantes AS r ON   r.idRestaurante = img.fk_restaurante
+    WHERE r.idRestaurante IN (1,2,3 );

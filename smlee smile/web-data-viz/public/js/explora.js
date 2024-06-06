@@ -1,4 +1,4 @@
-const { response } = require("express");
+var express = require("express");
 
 
 window.addEventListener('scroll', function () {
@@ -101,32 +101,3 @@ function listarDescricoesRestaurantes() {
         })
         .catch(error => console.error('Erro no fetching na descrição dos restaurantes:', error));
 };
-
-function listaLogos() {
-    fetch('/listarRestaurantes')
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Problemas no listaLogos @explora ' + response.statusText);
-            }
-            return response.json();
-        })
-        .then(data => {
-            if (data.length > 0) {
-                data.forEach(restaurante => {
-                    const aRestauranteLogo = document.querySelector('#a_restaurante_logo');
-                    const bRestauranteLogo = document.querySelector('#b_restaurante_logo');
-                    const cRestauranteLogo = document.querySelector('#c_restaurante_logo');
-
-                    if (imagem.idRestaurante === 1 && aRestauranteLogo) {
-                        aRestauranteLogo.src = `data:image/jpeg;base64,${imagem.imagem.toString('base64')}`;
-                    } else if (imagem.idRestaurante === 2 && bRestauranteLogo) {
-                        bRestauranteLogo.src = `data:image/jpeg;base64,${imagem.imagem.toString('base64')}`;
-                    } else if (imagem.idRestaurante === 3 && cRestauranteLogo) {
-                        cRestauranteLogo.src = `data:image/jpeg;base64,${imagem.imagem.toString('base64')}`;
-                    }
-                });
-            }
-        })
-        .catch(error => console.error('Erro no fetching na logo dos restaurantes:', error));
-};
-
