@@ -1,3 +1,6 @@
+
+
+
 html {
 
     scroll-behavior: smooth;
@@ -7,6 +10,16 @@ html {
 body {
     background-color: #F4EDE4;
 }
+
+
+a:visited {
+    color: black;
+}
+
+a:hover {
+    color: #000000;
+}
+
 
 
 .div__space {
