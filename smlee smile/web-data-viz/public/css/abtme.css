@@ -42,6 +42,11 @@
     height: 70%;
 }
 
+.img-baby{
+  width: 60%;
+  height: 60%;
+}
+
 .teste{
     width: 80%;
     display: flex;
@@ -53,36 +58,3 @@
 }
 
 
-footer {
-    height: 10vh;
-    width: 100%;
-    margin-top: 30px;
-    padding-top: 30px;
-    text-align: center;
-    display: flex;
-    justify-content: space-around;
-
-    border-top: 1px solid #ccc;
-  
-  }
-
-
-  #contact{
-   gap:60px
-  }
-  
-#mensagemFooter{
-   text-align: center;
-    font-family: "Nanum Brush Script", cursive;
-    font-weight: 400;
-    font-size: 60px;
-}
-
-  .smleee{
-    width: 80px;
-    height: 80px;
-  }
-
-  .abtmsgs{
-    font-size: 15px;
-  }

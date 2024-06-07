@@ -128,6 +128,43 @@ a:hover {
 }
 
 
+.content__kfcimg2 {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+
+    width: 25%;
+
+    margin: 110px -20px;
+    right: 30px;
+    
+
+    position: absolute;
+    z-index: 1;
+
+}
+
+.content__kfcimg2 img {
+    margin-top: 20px;
+
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+    border-radius: 5px;
+
+}
+
+.content__kfcimg2 p {
+
+    font-size: 15px;
+    font-style: italic;
+
+    margin-top: 10px;
+    margin-right: 70px;
+
+}
+
+
 
 .content__kfcstory {
     display: flex;
@@ -531,3 +568,56 @@ a:hover {
         transform: translateX(-100%)
     }
 }
+
+footer {
+    height: 10vh;
+    width: 100%;
+    margin-top: 30px;
+    padding-top: 30px;
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+
+    border-top: 1px solid #ccc;
+  
+  }
+
+
+  #contact{
+   gap:60px
+  }
+  
+#mensagemFooter{
+   text-align: center;
+    font-family: "Nanum Brush Script", cursive;
+    font-weight: 400;
+    font-size: 60px;
+}
+
+  .smleee{
+    width: 80px;
+    height: 80px;
+  }
+
+  .abtmsgs{
+    font-size: 15px;
+  }
+
+  .ods{
+    height: 300px;
+    width: 300px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    
+
+    z-index:5;
+
+  }
+
+  .ods img{
+    height: 80%;
+    width: 80%;
+
+  }

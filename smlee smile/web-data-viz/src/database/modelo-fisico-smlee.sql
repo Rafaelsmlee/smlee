@@ -182,3 +182,24 @@ GROUP BY
     r.idRestaurante, endereco_completo
 ORDER BY 
     r.nome;
+
+
+CREATE TABLE Reviews (
+    id INT AUTO_INCREMENT ,
+    titulo VARCHAR(255) NOT NULL,
+    descricao TEXT NOT NULL,
+    idUsuario INT NOT NULL,
+    nome VARCHAR(255),
+    data TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    
+    PRIMARY KEY(id)
+);
+
+
+INSERT INTO Reviews (titulo, descricao, idUsuario, nome) VALUES
+ ('Melhor frango frito da cidade', 'Comida deliciosa e atendimento excelente!', 1, 'João'),
+ ('Ótimo lugar para comer frango frito', 'Ambiente agradável e preço justo.', 2, 'Maria'),
+('Surpreendente!', 'Nunca provei um frango tão saboroso.', 3, 'Pedro');
+
+    
+    
