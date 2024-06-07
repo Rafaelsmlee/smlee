@@ -2,6 +2,7 @@ var express = require("express");
 var router = express.Router();
 
 var exploreController = require("../controllers/exploreController");
+var enderecoController = require("../controllers/exploreController");
 
 router.get("/listarRestaurantes", function (req, res) {
   exploreController.listarRestaurantes(req, res);

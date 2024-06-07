@@ -1,0 +1,88 @@
+
+
+.abt-me{
+   justify-content: space-around;
+   font-family: var(--tituloCorpo);
+   font-size: 23px;
+}
+
+.my-story{
+    width: 70%;
+    display: flex;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin-top: 20px;
+
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+    background-color: #f2f2f2;
+
+    border-radius: 10px;
+
+    padding: 23,23,23,23;
+}
+
+.my-story h1{
+    font-family: var(--tituloCorpo);
+    font-size: 65px;;
+    color: red;
+}
+
+.my-story p{
+    font-family: var(--tituloCorpo);
+    font-size: 54px;
+   
+    width: 50%;
+}
+
+.img-baby{
+    width: 70%;
+    height: 70%;
+}
+
+.teste{
+    width: 80%;
+    display: flex;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+
+footer {
+    height: 10vh;
+    width: 100%;
+    margin-top: 30px;
+    padding-top: 30px;
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+
+    border-top: 1px solid #ccc;
+  
+  }
+
+
+  #contact{
+   gap:60px
+  }
+  
+#mensagemFooter{
+   text-align: center;
+    font-family: "Nanum Brush Script", cursive;
+    font-weight: 400;
+    font-size: 60px;
+}
+
+  .smleee{
+    width: 80px;
+    height: 80px;
+  }
+
+  .abtmsgs{
+    font-size: 15px;
+  }

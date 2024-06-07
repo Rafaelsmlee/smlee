@@ -28,6 +28,7 @@ a:hover {
 
 .div__spaceBig {
     height: 73px;
+    width: 100%;
 }
 
 .container {
@@ -367,6 +368,55 @@ a:hover {
 }
 
 
+.story{
+    position: absolute;
+
+    top: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+    
+    width: 100%;
+    height: 40%;
+    
+   
+
+    z-index: 5;
+}
+
+.img_story  img {
+   
+    width: 300px;
+    z-index: 3;
+}
+
+.story h1{
+
+    color: red;
+    font-family: var(--tituloCorpo);
+
+    font-style: normal;
+    font-size: 65px;
+
+    align-self: center;
+
+    margin-top: 30px;
+}
+
+.story p{
+    font-family: var(--textoCorpo);
+    font-style: normal;
+
+    font-size: 23px;
+
+  margin: 20px 30px 0 0;
+
+    text-align: center;
+}
+
 
 .invitation {
     display: flex;
@@ -392,6 +442,8 @@ a:hover {
 .invitation__story {
     display: flex;
     flex-direction: column;
+
+    height: 26vh;
 
 }
 
@@ -422,10 +474,10 @@ a:hover {
     font-style: normal;
     font-size: 40px;
 
-    align-self: center;
 
-    margin-top: 60px;
-    margin-left: 310px;
+    text-align:end;
+    margin-right: 10px;
+  
 }
 
 .invitation__story p {
@@ -447,10 +499,13 @@ a:hover {
 
     padding: 10px 20px;
 
-    width: 30%;
+    width: 25%;
+    height: 25%;
+
+    transition: width 0.5s ease, height 0.5s ease; 
 
     margin-top: 20px;
-    margin-left: 450px;
+    margin-left: 480px;
 
     border: none;
     border-radius: 5px;
@@ -460,6 +515,9 @@ a:hover {
 
 .invitation__story button:hover {
     background-color: #F00;
+
+    transform: scale(1.2)
+    
 }
 
 

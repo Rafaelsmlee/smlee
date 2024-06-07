@@ -21,7 +21,7 @@ INSERT INTO restaurantes (
 nome, endereco, cidade, bairro, Telefone, WhatsApp, Instagram, Descricao, Ranking)
 VALUES
 ('Pollo Loko', 'Rua Prates, 694', 'São Paulo','Bom Retiro',  '(11)94226-1783', '(11)94226-1783', 'https://www.instagram.com/polloloko_oficial', 'Criado com a intenção de ser uma alternativas eram as pizzas e as esfihas, Pollo Loko veio para popularizar o frango frito, o casamento perfeito entre culturas com a sua mistura de temperos brasileiros com a técnica de fritura coreana! É a primeira franquia de frango frito coreano 100% brasileira!', 4.5),
-('Seoul Chicken', 'R. Guarani, 127', 'São Paulo', 'Bom Retiro', '(11)91042-2801', '(11)91042-2801', 'https://www.instagram.com/seoulchickenbrasil/', 'Em um pub acolhedor do Bom Retiro, descubra um paraíso de sabores coreanos. O frango suculento e temperado brilha, enquanto a equipe atenciosa garante uma experiência memorável. Das opções crocantes aos pratos tradicionais, é uma verdadeira viagem à Coreia. Ideal para jovens em busca de uma aventura gastronômica!, .', 4.4),
+('Seoul Chicken', 'R. Guarani, 127', 'São Paulo', 'Bom Retiro', '(11)91042-2801', '(11)91042-2801', 'https://www.instagram.com/seoulchickenbrasil/', 'Venha conhecer o melhor pub coreano! Descubra um paraíso de sabores! O frango suculento temperado made in Korea vai te surpreender! Das opções crocantes aos pratos tradicionais, uma verdadeira viagem à Coreia. Ideal para jovens em busca de uma aventura gastronômica!, .', 4.4),
 ('Waker Chicken', 'Rua Prates,340', 'São Paulo', 'Bom Retiro', '(11)91877-2209', '(11)91877-2209', 'https://www.instagram.com/wakerchickenbrasil/', 'Oferece frango frito ao estilo coreano em um ambiente muito animado com bastante K-pop. A suculência da carne, a crocância da fritura e os molhos apimentados que podem ser pedidos a parte surpreendem. Fica um destaque para o mural do BTS na entrada do estabelcimento. Uma experiência autêntica da Coreia no Brasil!', 4.8);
 
 
@@ -102,13 +102,13 @@ INSERT INTO ImagensRestaurante (fk_restaurante, nomeImagem, imagem) VALUES
 (3, 'wakerchicken_img3', LOAD_FILE('/caminho/para/sua/imagem/restaurante3_img3.jpg'));
 
 
- SELECT 
+SELECT 
     m.id, 
     m.prato, 
     m.menu_descricao, 
     m.preco
-    FROM menu_itens as m
-  JOIN Restaurantes as r on  m.fk_restaurante = r.idRestaurante;
+FROM menu_itens as m
+JOIN Restaurantes as r on  m.fk_restaurante = r.idRestaurante;
 
   SELECT 
         r.idRestaurante,
@@ -121,19 +121,64 @@ INSERT INTO ImagensRestaurante (fk_restaurante, nomeImagem, imagem) VALUES
         r.Instagram,
         r. Descricao, 
         r.Ranking
-    FROM Restaurantes AS r;
+FROM Restaurantes AS r;
     
-     select 
+SELECT 
         r.idRestaurante,
         r.nome,
         r.descricao
-    FROM Restaurantes AS r
-    WHERE r.idRestaurante IN (1, 2, 3);
+FROM Restaurantes AS r
+WHERE r.idRestaurante IN (1, 2, 3);
     
-    SELECT
-		r.idRestaurante,
-        r.nome,
-		img.imagem
-	FROM ImagensRestaurante AS img
+SELECT
+	r.idRestaurante, 
+    r.nome, 
+    img.imagem
+FROM ImagensRestaurante AS img
 	JOIN Restaurantes AS r ON   r.idRestaurante = img.fk_restaurante
     WHERE r.idRestaurante IN (1,2,3 );
+    
+    
+    -- ORDER BY FIELD = Ordena pela sequência, visto que no meu insert estava desorganizado
+    
+    SELECT 
+    r.idRestaurante,
+    r.nome,
+    GROUP_CONCAT(DISTINCT hf.dias_funcionamento ORDER BY FIELD(hf.dias_funcionamento, 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado', 'Domingo')) AS dias_funcionamento,
+    r.WhatsApp,
+    CONCAT(r.endereco, ', ', r.cidade, ', ', r.bairro) AS endereco_completo
+FROM 
+    Restaurantes AS r
+JOIN 
+    horario_funcionamento hf ON r.idRestaurante = hf.fk_restaurante
+LEFT JOIN (
+    SELECT 'Segunda' AS dia_semana UNION
+    SELECT 'Terça' UNION
+    SELECT 'Quarta' UNION
+    SELECT 'Quinta' UNION
+    SELECT 'Sexta' UNION
+    SELECT 'Sábado' UNION
+    SELECT 'Domingo'
+) AS d ON d.dia_semana NOT IN (
+    SELECT hf_inner.dias_funcionamento
+    FROM horario_funcionamento hf_inner
+    WHERE hf_inner.fk_restaurante = r.idRestaurante
+)
+GROUP BY 
+    r.idRestaurante, r.nome, r.WhatsApp, endereco_completo
+ORDER BY 
+    r.nome;
+    
+    
+      SELECT 
+r.idRestaurante, 
+r.nome,
+    CONCAT(r.endereco, ', ', r.cidade, ', ', r.bairro) AS endereco_completo
+FROM 
+    Restaurantes AS r
+JOIN 
+    horario_funcionamento hf ON r.idRestaurante = hf.fk_restaurante
+GROUP BY 
+    r.idRestaurante, endereco_completo
+ORDER BY 
+    r.nome;

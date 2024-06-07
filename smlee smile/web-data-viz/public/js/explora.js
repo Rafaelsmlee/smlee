@@ -1,4 +1,4 @@
-var express = require("express");
+
 
 
 window.addEventListener('scroll', function () {
@@ -35,20 +35,19 @@ const toggleModal = (modal, fade) => {
     [modal, fade].forEach((el) => el.classList.toggle("hide"));
 };
 
-modals.forEach(({ openButton, closeButton, modal, fade }) => {
+modals.forEach(({openButton, closeButton, modal, fade}) => {
     if (openButton && closeButton && modal && fade) {
         [openButton, closeButton, fade].forEach((el) => {
             el.addEventListener("click", () => toggleModal(modal, fade));
         });
     } else {
-        console.error('Elementos da modal não funcionando!:', { openButton, closeButton, modal, fade });
+        console.error('Missing elements for modal:', {openButton, closeButton, modal, fade});
     }
 });
 
+var express = require("express");
 
-document.addEventListener("DOMContentLoaded", function () {
-    listarRestaurantes();
-});
+
 
 function listarRestaurantes() {
     fetch('/listarRestaurantes')
@@ -73,6 +72,10 @@ function listarRestaurantes() {
         })
         .catch(error => console.error('Erro no fetching no nome dos restaurantes:', error));
 };
+
+document.addEventListener("DOMContentLoaded", function () {
+    listarRestaurantes();
+});
 
 function listarDescricoesRestaurantes() {
     fetch('/listarRestaurantes')
@@ -101,3 +104,41 @@ function listarDescricoesRestaurantes() {
         })
         .catch(error => console.error('Erro no fetching na descrição dos restaurantes:', error));
 };
+
+
+function listarEndereco() {
+    fetch('/listarEndereco') // ajuste a rota conforme necessário
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Problemas no listarEndereco @explora: ' + response.statusText);
+            }
+            return response.json();
+        })
+        .then(data => {
+            if (data.length > 0) {
+                data.forEach(restaurante => {
+                    const enderecoCompleto = restaurante.endereco_completo;
+                    const idRestaurante = restaurante.idRestaurante;
+                    
+                    // Aqui associamos os endereços aos elementos HTML correspondentes
+                    if (idRestaurante === 1) {
+                        const aEndereco = document.querySelector('#a_endereco');
+                        if (aEndereco) {
+                            aEndereco.textContent = enderecoCompleto;
+                        }
+                    } else if (idRestaurante === 2) {
+                        const bEndereco = document.querySelector('#b_endereco');
+                        if (bEndereco) {
+                            bEndereco.textContent = enderecoCompleto;
+                        }
+                    } else if (idRestaurante === 3) {
+                        const cEndereco = document.querySelector('#c_endereco');
+                        if (cEndereco) {
+                            cEndereco.textContent = enderecoCompleto;
+                        }
+                    }
+                });
+            }
+        })
+        .catch(error => console.error('Erro ao buscar os endereços dos restaurantes:', error));
+}
