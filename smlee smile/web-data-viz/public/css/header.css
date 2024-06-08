@@ -20,20 +20,7 @@ body {
     background-color: #f4ede4;
 }
 
-header {
-    width: 100%;
-    max-width: var(--max-width);
-    margin: auto;
-    text-align: center;
-    z-index: 1;
-    background-attachment: fixed;
-}
 
-header video {
-    width: 100%;
-    height: auto;
-    z-index: -1;
-}
 
 a {
     text-decoration: none;
@@ -159,9 +146,9 @@ ul {
 .past-img,
 .coml-img,
 .modern-img {
-    margin: 20px auto;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
+    margin: 2vh auto;
+    box-shadow: 0 0.4vh 0.8vh rgba(0, 0, 0, 0.1);
+    border-radius: 0.5vh;
     overflow: hidden;
     text-align: center;
 }
@@ -175,32 +162,32 @@ ul {
 }
 
 .img-container {
-    width: 28%;
+    width: 28vw;
 }
 
 .img-container2 {
-    width: 25%;
+    width: 25vw;
 }
 
 .past-img {
-    width: 27%;
+    width: 27vw;
 }
 
 .coml-img {
-    width: 25%;
+    width: 25vw;
 }
 
 .modern-img {
-    width: 55%;
+    width: 55vw;
 }
 
 .img-container p,
 .img-container2 p,
 .past-img p,
 .modern-img p {
-    font-size: 15px;
+    font-size: 1.5vw;
     font-style: italic;
-    margin-top: 10px;
+    margin-top: 1vh;
 }
 
 @keyframes smothScale {
@@ -214,7 +201,7 @@ ul {
 
 @keyframes sliderReveal {
     0% {
-        transform: translateY(30px);
+        transform: translateY(3vh);
         opacity: 0;
     }
     100% {
@@ -225,7 +212,7 @@ ul {
 
 @keyframes sliderRevealCenter {
     0% {
-        transform: translate(-50%, -50%) translateY(30px);
+        transform: translate(-50%, -50%) translateY(3vh);
         opacity: 0;
     }
     100% {
@@ -236,13 +223,13 @@ ul {
 
 @keyframes border-animation {
     0% {
-        border-width: 1px;
+        border-width: 0.1vh;
     }
     50% {
-        border-width: 1.5px;
+        border-width: 0.15vh;
     }
     100% {
-        border-width: 2px;
-        border-radius: 5px;
+        border-width: 0.2vh;
+        border-radius: 0.5vh;
     }
 }

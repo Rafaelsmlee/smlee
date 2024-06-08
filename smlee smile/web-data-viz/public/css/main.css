@@ -1,50 +1,33 @@
-/* Reset CSS */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* Root Variables */
-:root {
-    --bg-color: #F4EDE4;
-    --font-color: black;
-    --highlight-color: red;
-    --text-font: 'Carlito', sans-serif;
-    --title-font: 'Capriola', sans-serif;
-    --subtitle-font: 'Nanum Brush Script', cursive;
+html {
+    scroll-behavior: smooth;
 }
 
 body {
-    background-color: var(--bg-color);
-    color: var(--font-color);
-    font-family: var(--text-font);
+    background-color: #F4EDE4;
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
-a {
-    text-decoration: none;
-    color: var(--font-color);
+a:visited {
+    color: black;
 }
 
 a:hover {
-    color: var(--highlight-color);
+    color: #000000;
 }
 
-.space {
+.div__space {
     height: 30px;
 }
 
-.space-big {
+.div__spaceBig {
     height: 73px;
-    width: 100%;
 }
 
 .container {
     width: 100%;
-    height: 100%;
     text-align: center;
-    margin: 0 auto;
-    padding: 20px;
 }
 
 .slider {
@@ -66,10 +49,6 @@ a:hover {
     width: 200px;
     height: 100%;
     content: "";
-}
-
-.slider::before {
-    left: 0;
     background: linear-gradient(to left, rgba(255, 255, 255, 0), white);
 }
 
@@ -78,10 +57,14 @@ a:hover {
     background: linear-gradient(to right, rgba(255, 255, 255, 0), white);
 }
 
+
+.slider::before {
+    left: 0;
+}
+
 .slider-banner {
     display: inline-block;
-    animation: 40s slide infinite linear;
-    position: relative;
+    animation: slide 40s infinite linear;
 }
 
 .slider-banner img {
@@ -89,113 +72,136 @@ a:hover {
     margin: 0 30px;
 }
 
-/* Image Container */
-.img-container,
-.img-container2,
-.past-img,
-.coml-img,
-.modern-img,
-.invitation__video {
+
+.content__kfc,
+.content__past,
+.content__modern,
+.invitation {
     position: relative;
-    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #f2f2f2;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    width: 80%;
+    max-width: 1200px;
+}
+
+ .content__modernimg {
+    flex: 1 1 100px; 
+}
+
+.content__modernimg img{
+    width: 50%; 
+    height: auto;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
-    overflow: hidden;
 }
 
-.img-container img,
-.img-container2 img,
-.past-img img,
-.modern-img img,
-.invitation__video video {
+.content__kfcimg2,
+.content__pastimg,
+.content__comlimg,
+.content__kfcimg{
+    flex: 1 1 300px; /* Ajuste para outras imagens */
+    margin: 10px;
+}
+
+.content__kfcimg2 img,
+.content__pastimg img,
+.content__comlimg img,
+.content__kfcimg img 
+ {
     width: 100%;
     height: auto;
-    display: block;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
 }
 
-.img-container p,
-.img-container2 p,
-.past-img p,
-.modern-img p {
+.content__kfcimg p,
+.content__pastimg p,
+.content__comlimg p,
+.content__modernimg p {
     font-size: 15px;
     font-style: italic;
     margin-top: 10px;
     text-align: center;
 }
 
-.img-container {
-    width: 28%;
+.content__kfcstory,
+.content__pastStory,
+.content__modernstory {
+    flex: 2 1 600px;
+    margin: 10px;
 }
 
-.img-container2 {
-    width: 25%;
-}
-
-.past-img {
-    width: 27%;
-}
-
-.coml-img {
-    width: 25%;
-}
-
-.modern-img {
-    width: 55%;
-}
-
-/* Content Sections */
-.kfc-story,
-.modern-story,
-.invitation__story {
-    background-color: #f2f2f2;
-    margin: 20px auto;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    width: 60%;
-}
-
-.kfc-story h1,
-.modern-story h1,
-.invitation__story h1 {
-    color: var(--highlight-color);
-    font-family: var(--title-font);
-    font-size: 2.5rem;
-    margin-bottom: 20px;
+.content__kfcstory h1 {
+    color: red;
+    font-family: 'Capriola', sans-serif;
+    font-size: 36px;
+    margin-top: 0;
     text-align: center;
 }
 
-.kfc-story p,
-.modern-story p,
+.content__kfcstory p,
+.content__pastStory p,
+.content__modernstory p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    margin: 20px;
+    text-align: left;
+}
+
+.invitation__video {
+    flex: 1 1 300px;
+}
+
+.invitation__video video {
+    width: 100%;
+    height: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.invitation__story {
+    flex: 2 1 600px;
+    text-align: left;
+    padding: 20px;
+}
+
+.invitation__story h1 {
+    font-family: 'Capriola', sans-serif;
+    font-size: 36px;
+    margin-top: 0;
+}
+
 .invitation__story p {
-    font-family: var(--text-font);
-    font-size: 1rem;
-    text-align: justify;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
     margin: 20px 0;
 }
 
-/* Invitation Button */
 .invitation__story button {
-    background-color: var(--highlight-color);
+    background-color: #FF0000;
     color: #FFFFFF;
     padding: 10px 20px;
-    margin-top: 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: transform 0.3s;
+    font-size: 16px;
 }
 
 .invitation__story button:hover {
-    transform: scale(1.1);
+    background-color: #D00000;
 }
 
-/* Slider Animation */
 @keyframes slide {
     from {
         transform: translateX(0);
     }
-
     to {
         transform: translateX(-100%);
     }
@@ -210,6 +216,7 @@ footer {
     display: flex;
     justify-content: space-around;
     border-top: 1px solid #ccc;
+    z-index: 5;
 }
 
 #contact {

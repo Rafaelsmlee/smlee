@@ -1,4 +1,9 @@
-
+.abt-me2{
+    justify-content: space-around;
+    font-family: var(--tituloCorpo);
+    font-size: 15px;
+ }
+ 
 
 .abt-me{
    justify-content: space-around;
@@ -57,4 +62,12 @@
 
 }
 
+.ods{
+    display: flex;
+    flex-direction: row;
+}
+.ods img{
+    width: 60%;
+    height: 60%;
 
+}

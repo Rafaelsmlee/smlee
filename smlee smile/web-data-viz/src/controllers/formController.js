@@ -25,3 +25,4 @@ function cadastrarResposta(req, res) {
 module.exports = {
     cadastrarResposta
 }
+

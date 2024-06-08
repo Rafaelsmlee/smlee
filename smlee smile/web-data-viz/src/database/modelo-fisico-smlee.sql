@@ -184,22 +184,62 @@ ORDER BY
     r.nome;
 
 
-CREATE TABLE Reviews (
-    id INT AUTO_INCREMENT ,
-    titulo VARCHAR(255) NOT NULL,
-    descricao TEXT NOT NULL,
-    idUsuario INT NOT NULL,
-    nome VARCHAR(255),
-    data TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     
-    PRIMARY KEY(id)
+    
+CREATE TABLE usuarios (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    senha VARCHAR(255) NOT NULL
 );
 
 
-INSERT INTO Reviews (titulo, descricao, idUsuario, nome) VALUES
- ('Melhor frango frito da cidade', 'Comida deliciosa e atendimento excelente!', 1, 'João'),
- ('Ótimo lugar para comer frango frito', 'Ambiente agradável e preço justo.', 2, 'Maria'),
-('Surpreendente!', 'Nunca provei um frango tão saboroso.', 3, 'Pedro');
 
-    
-    
+
+CREATE TABLE perguntas (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    titulo VARCHAR(255) NOT NULL,
+    descricao TEXT NOT NULL,
+    data_criacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    fkUsuario INT,
+    FOREIGN KEY (fkUsuario) REFERENCES usuarios(id)
+);
+
+
+CREATE TABLE respostas (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    resposta TEXT NOT NULL,
+    data_criacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    fkUsuario INT,
+    fkPergunta INT,
+    FOREIGN KEY (fkUsuario) REFERENCES usuarios(id),
+    FOREIGN KEY (fkPergunta) REFERENCES perguntas(id)
+);
+
+
+INSERT INTO usuarios (nome, email, senha) VALUES
+('João da Silva', 'joao@gmail.com', 'senha123'),
+('Maria Oliveira', 'maria@gmail.com', 'senha456'),
+('Carlos Pereira', 'carlos@gmail.com', 'senha789');
+
+INSERT INTO perguntas (titulo, descricao, fkUsuario) VALUES
+('Como fazer frango frito crocante?', 'Gostaria de saber a melhor receita para fazer frango frito crocante.', 1),
+('Qual o segredo do tempero coreano?', 'Quais são os ingredientes essenciais para o frango frito coreano?', 2);
+
+
+INSERT INTO respostas (resposta, fkUsuario, fkPergunta) VALUES
+('O segredo é usar farinha de arroz e fritar duas vezes.', 2, 1),
+('Use molho de soja, alho, e gengibre para temperar.', 3, 2);
+
+SELECT 
+    r.id AS id_resposta,
+    r.resposta,
+    r.data_criacao AS data_resposta,
+    u.nome AS nome_usuario,
+    p.titulo AS titulo_pergunta
+FROM 
+    respostas r
+JOIN 
+    usuarios u ON r.fkUsuario = u.id
+JOIN 
+    perguntas p ON r.fkPergunta = p.id;

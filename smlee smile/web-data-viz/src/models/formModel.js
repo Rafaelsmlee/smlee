@@ -8,3 +8,5 @@ router.post("/cadastrarResposta", function (req, res) {
 });
 
 module.exports = router
+
+
